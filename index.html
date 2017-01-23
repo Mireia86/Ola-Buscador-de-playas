@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  ng-app='myApp' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword" content="innovacion, diseño, mobiliario, interiores, madrid, comunidad de madrid, alcalá de henares, oficinas, salud, contract, feng shui, fundacion prodis, responsabilidad social, responsabilidad medioambiental">
+   <meta name="description" content=""> 
+    <title>Ola | Buscador de playas</title>
+</head>
+<body>
+     <!--<header header-directive></header>-->
+   <div class="row">
+        <section class="col-md-12 col-xs-12 foto view-animate" ng-view>
+          <div ng-controller="indexController">
+            <div class="view-animate-container"></div>
+          </div>
+        </section>
+   </div>    
+    <footer footer-directive class="footer"></footer>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <link rel="stylesheet" href="./stylesheets/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" rel="stylesheet"  src="./stylesheets/js/bootstrap.min.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   <script src="lib/ng-map.min.js"></script>
+</body>
+</html>
