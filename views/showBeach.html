@@ -1,0 +1,77 @@
+<div class="container-fluid" ng-controller="showBeach">
+<div class="back row">
+   <div class="back_map col-xs-12 col-md-12">
+     <div class="col-xs-3 col-md-3">
+       <a ng-href="/"><img class="logo_header" src="./img/logo1.png"/></a>
+     </div>
+      <ul class="list-inline">
+      <!--<li><input class="btn btn-warning btn-lg active nav-item" type="checkbox" value="All" ng-click="setQuery('all')">All</input></li>-->
+      <li><input class="nav-item" type="checkbox" value="Blue" ng-click="setQuery('blue')">Bandera azul</input></li>
+      <li><input class="nav-item" type="checkbox" value="Dog" ng-click="setQuery('dog')">Perros</input></li>
+      <li><input class="nav-item" type="checkbox" value="Nudist" ng-click="setQuery('nudist')">Nudista</input></li>
+      <li><input class="nav-item" type="checkbox" value="Accessible" ng-click="setQuery('accessible')">Acceso a discapacitados</input></li>
+      <li><input class="nav-item" type="checkbox" value="Guard" ng-click="setQuery('guard')">Socorrista</input></li>
+      <li><input class="nav-item" type="checkbox" value="Wc" ng-click="setQuery('wc')">WC</input></li>
+      <li><input class="nav-item" type="checkbox" value="Rock" ng-click="setQuery('rock')">Playa rocosa</input></li>
+      <li><input class="nav-item" type="checkbox" value="Sand" ng-click="setQuery('sand')">Playa de arena</input></li>
+      <div class="clock" ng-controller="GetWeatherCtrl"><img src="img/clock.png" width="48" alt="Location" />{{ currentTime }}</div>
+      </ul>
+   </div> 
+</div>
+ <div class="container weather" ng-controller="GetWeatherCtrl">
+ 
+ <div class="row">    
+ <div class="col-xs-1 col-md-1 weather-days" ng-repeat="day in data.list | filter:!dt.today">
+     <p class="marginp"><img class="sun" src="./img/logo_nuk.jpg"/>{{day.dt.day}}</p>      
+     <span class="temp-title">
+       {{day.temp.day}}&deg;
+     </span><br/>
+     <span class="speed">
+       {{day.speed}} km/h
+     </span>      
+   </div>
+   <div class="col-xs-10 col-md-10">
+     <div class="row">    
+       <div class="weather-days col-xs-12 col-md-2" ng-repeat="day in data.list" ng-show="!day.dt.today">    
+           <span class="badge">
+             {{ day.dt.day  }}
+           </span><br />
+           <span class="temp-title">
+             {{ day.temp.day}}&deg;
+           </span><br />
+           <span class="speed">
+             {{ day.speed }} km/h
+           </span>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="back-img container-fluid">
+<div class="row">
+   <div class="col-xs-5 col-md-5">
+       <section  ng-controller="MarkerAnimationCtrl"> 
+             <ng-map  zoom="7" center="39, 0.3" style="height:600px">
+               <div ng-repeat="beach in beaches | filter:query">
+                 <marker position="{{beach.longitud}}, {{beach.latitud}}" title="{{beach.name}}. {{beach.markerText}}" 
+                  on-click="beach.toggleBounce()" animation="DROP" icon="./img/sombrilla.png"> 
+                 <info-window id="bar" max-width="200"> 
+                   <div ng-non-bindable>
+                     <h3 id="firstHeading" class="firstHeading">{{beach.id}}. {{beach.name}}</h3>
+                     <img ng-src="{{beach.images}}">
+                   </div>
+                 </info-window>
+                 
+                 </marker>
+               </div>
+             </ng-map>
+        </section>
+   </div>
+   <div class="col-md-7 col-xs-7 scroll">
+           <div ng-repeat="beach in beaches | orderBy: 'name' | filter:query" class="col-md-6">
+              <a ng-href="showCard/{{beach.id}}"><img ng-src={{beach.image}}   class="img-responsive" alt="{{beach.name}}"></a>
+           </div>    
+   </div>
+</div>
+</div>
+</div>

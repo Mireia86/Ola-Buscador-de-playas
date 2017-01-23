@@ -1,0 +1,13 @@
+<img src="/img/foto1.jpg" class="img-fluid" alt="Responsive image">
+<div class="row">
+	<a ng-href="/"><img class="logo_front" ng-controller="showBeach" src="./img/logo2_front.png"/></a>
+  	<section class="containSearch">
+  		<h1 class="title_front">¿Qué playa estás buscando? ¡La tenemos!</h1>
+  		<div class=" contain-search col-md-5 col-xs-5"> 
+	   		<input class="input" type="text" name="search" placeholder="Ej. Levante.." autofocus required/>
+	  		<button ng-model="place" class="btn btn-warning search" ng-click="go('/showPlaya')">Buscar</button>
+  		</div>
+  	</section>
+</div>
+
+
