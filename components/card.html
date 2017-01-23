@@ -1,0 +1,24 @@
+<div class="row cardHead col-md-12">
+<a ng-href="/"><img class="logo_card" src="./img/logo1.png"/></a>
+</div>
+<div class="row" >
+  <div class="col-md-4"></div>
+  <div class="col-md-4">  
+    <section >
+      <p class="cardName">{{card.name}}</p>
+      <hr>
+      <img ng-src={{card.images}} alt="{{beach.name}}" class="cardImage">
+      <br>
+      <img ng-src={{card.icon}} class="cardIcon">
+    </section> 
+    <section class="cardDescription">
+          <p>{{card.description}}</p><br>
+          <br><strong class="cardtxt">{{card.titleDirection}}</strong>
+          <br>
+          <br><p>{{card.direction}}</p>
+          <br>
+          <a ng-href="/showPlaya"><img class="form_flecha" src="./img/flecha.png"/></a>
+    </section>
+  </div>   
+  <div class="col-md-4"></div>  
+</div>
